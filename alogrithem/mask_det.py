@@ -9,7 +9,7 @@ class Mask_det(object):
         if onnx_file:
             self.model_path = onnx_file
         else:
-            self.model_path = '/home/guoweiye/workspace/mask_recognition/app/alogrithem/models/yolov5s.onnx'
+            self.model_path = './models/yolov5s.onnx'
 
         self.sess = rt.InferenceSession(self.model_path)
         self.size_h = self.sess.get_inputs()[0].shape[2]
@@ -255,9 +255,15 @@ if __name__ == "__main__":
     tic = time.time()
     detections = model.infer(image, conf_thres=ct, iou_thres=it)
     elapsed = time.time() - tic
-    print(elapsed)
-    print(detections)
+    #print(elapsed)
+    #print(detections)
 
+    tmp = 0
+    for i in detections:
+        if(i['face_mask']['name'] == 1):
+            tmp += 1
+    print('该图片带口罩的人数占比是：' + str(tmp/len(detections)))
+    
     img_vis = display(detections, image)
     cv2.imwrite('./mask.jpg', img_vis)
 

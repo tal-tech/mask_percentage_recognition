@@ -1,0 +1,26 @@
+[
+    {
+        "location": {
+            "left": 431,
+            "top": 297,
+            "width": 75,
+            "height": 80
+        },
+        "face_mask": {
+            "score": 0.8741489052772522,
+            "name": 2
+        }
+    },
+    {
+        "location": {
+            "left": 150,
+            "top": 349,
+            "width": 53,
+            "height": 51
+        },
+        "face_mask": {
+            "score": 0.8656575679779053,
+            "name": 1
+        }
+    }
+]
